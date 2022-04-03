@@ -54,6 +54,7 @@ html, body {
     grid-template-columns: 3fr 1fr;
     background-color: #4ECDC4;
     align-items: start;
+    padding-top: 10px;
     
 }
 
@@ -67,7 +68,10 @@ html, body {
 }
 
 .section-titles {
-    width: 100%;
+    grid-column: 1 / -1;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: -6px;
 }
 
 .card {
@@ -78,10 +82,22 @@ html, body {
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0px 5px 10px;
+}
+
+.card-content {
+    padding: 0px 5px 0px 10px;
+}
+
 .side-content-container {
     grid-column: 2 / 3;
     display: grid;
-    padding: 20px;
+    padding: 20px 20px 20px 0px;
+    gap: 1rem;
+
 }
 
 .announcements-container,
@@ -90,11 +106,16 @@ html, body {
     background-color: #F7FFF7;
     padding: 20px;
     border-radius: 10px;
+    gap: 1rem;
 
 }
 
+.trending-title {
+    margin-top: 30px;
+}
+
 .announcements, .trending-profile {
-    padding: 10px;
+    padding: 0px;
 }
 
 .trending-profile {
