@@ -1,36 +1,118 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
+
 }
 
 .container {
     display: grid;
-    grid-template-columns: 250px 4fr;
+    grid-template-columns: minmax(220px, 250px) 1fr;
     min-height: 100%;
 }
 
 .header {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    row-gap: 10px;
     align-items: center;
-    padding: 10px 30px;
-    background-color: #FFE66D;
+    justify-items: end;
+    padding: 20px 50px 15px 30px;
+    background-color: #F28482;
+    z-index: 1;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 6px 7px -3px;
 }
 
 .search {
     grid-column: 1 / 2;
     display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.search-bar {
+.search-bar,
+input[type="text"]:focus-visible {
     flex-grow: 1;
     border-radius: 15px;
+    background-color: #F5CAC3;
+    border: none;
+    text-indent: 12px;
+    font-size: 18px;
+    outline: none;
+    height: 30px;
+}
+
+input[type="text"]:focus-visible {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.header-profile-container {
+    display: grid;
+    grid-template-columns: 1fr 24px 100px;
+    align-items: center;
+    justify-items: center;
+    gap: 25px;
+}
+
+.header-profile-container > .material-icons-outlined {
+    justify-self: end;
+    padding-right: 10px;
+}
+
+.search > .material-icons-outlined {
+    padding: 10px;
+}
+
+.header-profile-container > p {
+    justify-self: start;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.profile-welcome {
+    justify-self: start;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    padding: 15px 0px 0px 20px;
+}
+
+.welcome-message {
+    padding-left: 15px;
+}
+
+.welcome {
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 3px;
+}
+
+.username {
+    font-weight: 500;
+    font-size: 18px
+}
+
+.profile-pic-small {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-pic-large {
+    width: 60px;
+    height: 60px;
+}
+
+.profile-pic-large,
+.profile-pic-small {
+    border-radius: 50%;
+    object-fit: cover;
+    
 }
 
 .action-button-container {
@@ -38,6 +120,17 @@ html, body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    justify-self: center;
+    padding-left: 30px;
+}
+
+.action-button {
+    background-color: #F6BD60;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .sidebar {
@@ -47,7 +140,7 @@ html, body {
     grid-template-rows: 40px 300px 1fr;
     gap: 50px;
     align-items: start;
-    background-color: #1a535c;
+    background-color: #F6BD60;
 }
 
 .sideboard-button,
@@ -59,13 +152,13 @@ html, body {
 p.title {
     font-size: 28px;
     font-weight: 500;
-    color: #F7FFF7;
+    color: black;
 }
 
 .sideboard-button > p {
     font-size: 18px;
     font-weight: 500;
-    color: #F7FFF7;
+    color: black;
 }
 
 .dashboard-logo > .material-icons {
@@ -76,15 +169,15 @@ p.title {
 .material-icons {
     padding: 12px 20px;
     font-size: 26px;
-    color: #F7FFF7;
+    color: black;
     
 }
 
 .content-container {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    background-color: #4ECDC4;
+    grid-template-columns: 3fr 250px;
+    background-color: #84A59D;
     align-items: start;
     padding-top: 10px;
     
@@ -104,24 +197,44 @@ p.title {
     font-size: 18px;
     font-weight: 400;
     margin-bottom: -6px;
+    color: black;
+    font-weight: 500;
 }
 
 .card {
-    background-color: #F7FFF7;
-    height: 200px;
-    padding: 20px 10px;
+    background-color: #F7EDE2;
+    height: 250px;
+    padding: 20px 10px 0px 10px;
     border-radius: 10px;
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    border-left: 10px solid #F5CAC3;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 20px 150px 5px;
+    gap: 5px;
 }
 
 .card-title {
     font-size: 16px;
     font-weight: 500;
-    padding: 10px 0px 5px 10px;
+    padding-left: 5px;
 }
 
 .card-content {
-    padding: 0px 5px 0px 10px;
+    padding-left: 5px;
+    overflow: hidden;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, rgba(247, 237, 226, 0.1), #F7EDE2);
+}
+
+.card-icons {
+    justify-self: end;
+    padding-right: 10px;
+}
+
+.card-icons > .material-icons {
+    padding: 10px 5px 0px 0px;
+    font-size: 20px;
 }
 
 .side-content-container {
@@ -135,12 +248,55 @@ p.title {
 .announcements-container,
 .trending-container {
     display: grid;
-    background-color: #F7FFF7;
-    padding: 20px;
+    background-color: #F7EDE2;
+    padding: 20px 30px;
     border-radius: 10px;
     gap: 1rem;
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 
+}
+
+.announcements-info {
+    padding: 5px 0px 15px 0px;
+    font-size: 12px;
+}
+
+.announcements {
+    border-bottom: 1px solid rgb(168, 168, 168);
+}
+
+.announcements:nth-child(3),
+.announcements-info:nth-child(3) {
+    border-bottom: none;
+    padding-bottom: none;
+}
+
+.announcements-title {
+    font-weight: 500;
+    font-size: 14px;
+
+}
+
+.trending-profile {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.trending-user-container {
+    display: grid;
+    gap: 5px;
+}
+
+.trending-user {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.trending-name {
+    font-size: 12px;
+    color: rgb(73, 73, 73)
 }
 
 .trending-title {
@@ -153,6 +309,6 @@ p.title {
 }
 
 .trending-profile {
-    padding: 10px;
+    
 }
 
